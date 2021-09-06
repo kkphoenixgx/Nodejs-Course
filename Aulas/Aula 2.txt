@@ -1,6 +1,6 @@
 Mod 4                                                19/08/21
 
--usando github -
+- Usando github:
 
 Comandos git no terminal, sem usar o vsCode:
 
