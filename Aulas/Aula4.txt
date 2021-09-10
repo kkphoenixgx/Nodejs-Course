@@ -1,0 +1,6 @@
+mod 8                                               09/09/21
+
+- Utilizando Nodeschool.io
+
+é uma série de desafios gratuitos de node.js que vão 
+ser requisitados. Já instalei.
