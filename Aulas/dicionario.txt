@@ -8,7 +8,8 @@ nodeJs{
         * O que é um módulo?{
         "É um script php no qual você consegue incluir em um outro
         script. É uma maneira bem tradicional de se organizar as 
-        partes funcionais do código."}
+        partes funcionais do código."
+        }
         
         require(x){
             O método require(x) que trás um módulo de dentro de um outro arquivo.
@@ -50,6 +51,20 @@ nodeJs{
                         "text/plain" : formato de texto;
                     }
         
+                }
+
+                x.listen(porta, ip, fn){
+
+                    No caso do listen, vamos passar a porta e o ip para o servidor rodar e o que fazer enquanto o servidor  estiver 
+                    rodando, sendo x = o próprio server.
+
+                    ex:
+                        server.listen(3000, 127.0.0.1, ()=.{
+
+                            console.log("bloco de código para o que fazer
+                            enquanto o server está rodando.");
+                            
+                        });
                 }
     
             }
