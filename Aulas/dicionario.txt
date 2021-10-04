@@ -49,6 +49,8 @@ nodeJs{
                         }
         
                         "text/plain" : formato de texto;
+                        "text/html" : formata para entender strings em html;
+                        "application/json" : faz poder retornar um json
                     }
         
                 }
