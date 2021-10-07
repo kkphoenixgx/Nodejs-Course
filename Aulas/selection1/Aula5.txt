@@ -25,3 +25,6 @@ e se quiser usar o -g é global ao invés de -g
 
 se você usar o [yarn install] ele instala as dependencia só 
 com os arquivos de configuração.
+
+tanto op npm install quanto o yarn install leem o 
+package.json e instalam as dependencias
