@@ -61,17 +61,16 @@ partes funcionais do código."
 
 * x.listen(porta, ip, fn){
 
-No caso do listen, vamos passar a porta e o ip para o servidor rodar e o que fazer enquanto o servidor  estiver 
-rodando, sendo x = o próprio server.
+    No caso do listen, vamos passar a porta e o ip para o servidor rodar e o que fazer enquanto o servidor  estiver 
+    rodando, sendo x = o próprio server.
 
-~~~javascript
+    ~~~javascript
+    ex:
+        server.listen(3000, 127.0.0.1, ()=>{
 
-ex:
-    server.listen(3000, 127.0.0.1, ()=>{
-
-    /*  bloco de código para o que fazer enquanto o server 
-    está rodando. */
-}
+        /*  bloco de código para o que fazer enquanto o server 
+        está rodando. */
+    }
 ~~~
 
 <h3>Nodeschool :</h3>
