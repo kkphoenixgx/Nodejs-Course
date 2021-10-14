@@ -32,6 +32,15 @@ x.exec((err, user){
 })
 ~~~
 
+* req.url(): <br>
+Retorna a url do site, exemplo: <br>
+~~~javascript
+x.createServer(req, res){
+    const url = req.url();
+    // isso vai retornar a url dentro da const url
+}
+~~~
+
 <h5>---Dependentes:---</h5>
 
 <h5>----Server:----</h5>
@@ -46,7 +55,7 @@ x.exec((err, user){
 
     **statusCode** é o status do servidor, sendo : <br>
     200 = tudo certo. <br>
-    300 = erro <br>
+    400 = erro <br>
 
 * req.setHeader()
 
