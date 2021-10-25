@@ -168,29 +168,115 @@ banco de dados bem simples de trabalhar, trazendo para os
 usuários de nodeJs uma simples forma de gerir um servidor
 na linguagem que a gente ama.
 
-* inserindo dados com db.insert<br>
-    Exemplo: caso queira inserir algo no banco de dados você utiliza **db.insert**:
+* <h4>db.insert</h4>
 
-formula:
+Exemplo: caso queira inserir algo no banco de dados você utiliza **db.insert**:
 
+~~~javascript
         db.insert("o json que você quer inserir",
         "function(error, idGerado) =>" "{"
             "geralmente nesse bloco de código tratamos o erro",
             "e se tudo rolou bem"
         "}");
+~~~
 
-* pegando dados do servidor com db.find():<br>
+* <h4>db.find():</h4>
 
 formula:
-> db.find(x)
 
-sendo x um objeto json do que você tá procurando e 
-usando um sort(x) sendo x umo bjeto com o nome do 
-atributo que vai primeiro e : 1 para crescente e -1 
-para decrescente
+> db.find( x ).sort( y ).exec( fn );
+
+sendo x o que você ta buscando, sort para organizar o que você ta buscando, então o y fica sendo a ordem que você quer detalhada numa função: você coloca o primeiro item que você quer como primeiro atributo json da lista e define se você quer +1 = ordem crescente ou -1 = ordem decrescente, e depois disso executa com o exec() passando uma função, normalmente uma arrow function que lida com o erro e com as informações, exemplo real:
 
 ~~~javascript
+app.get('/users', (req, res)=>{
 
+    /* 
+    quando usamos no método find um array vazio estamos
+     dizendo que queremos que liste todos os usuários, ou 
+    seja não estamos buscando ninguém.
+    */
+
+    db.find({}).sort({name: 1}).exec((err, user)=> {
+
+        if(err){
+            console.log(`error: ${err}`);
+            res.setCode(300).json({error: err});
+        }else{
+            res.setCode = 200
+            res.setHeader('content-type', 'application/json');
+            res.json({
+                users: [{
+                    name: 'x',
+                    email: 'x',
+                    id: 1,
+                }]
+            });
+        }
+
+    });
+
+}) 
+~~~
+
+* <h4>findOne(x) :</h4>
+O método findOne(x), sendo x um json com o(s) atributos de um json que você quer encontrar, por exemplo, eu quero encontrar um usuário com um determinado id, eu vou pedir do json, o _id: e passar um req.params.x, sendo x o parametro colocado na url
+
+formula:
+> db.findOne( { _x : req.params.x }).exec( fn )
+
+Sendo x o parametro que você quer encontrar no banco, vamos um exemplo de que eu quero achar um id em especifico mas de uma maneira abstrata, claro para qualquer id que passar no form:  
+
+~~~javascript
+const routeId = app.routes('/users/:id');
+
+routeId.get((req, res) => {
+    db.findOne({_id: req.params.id}).exec((err, user)=> {
+        if(err){
+            console.log(`error: ${err}`);
+            res.statusCode(300).json({
+                error: err
+            });
+        }else{
+            res.status(200).json(user);
+        }
+    }); 
+});
+~~~
+
+* <h4>update(x) :</h4>
+
+Então usando o método do NeDb chamado de update( ) do NeDb, podemos fazer alterações do banco.
+
+> x.update({_y : req.params.y}, z, fn)
+
+sendo x o banco, passar um update com um objeto json passando o parametro que você quer mudar num json que requisita o y e os dados necessários, no caso z, que pode ser por exemplo um **req.Body, ou seja uma requisição dos dados que estão no formulário naquele momento**, depois você executa a função sendo fn uma function para tratar o erro e as informações caso dê tudo certo. agora um exemplo prático:
+
+~~~javascript
+/* 
+lembrando que aqui eu já to dentro de um arquivo para tratar 
+dados de usuários e já defini meu app como express no meu 
+index, isso que eu tô fazendo já é tratando minha rota.
+*/
+
+const routeId = app.routes('/users/:id');
+
+routeId.put((req, res) => {
+    db.update({_id: req.params.id}, req.body, err =>{
+        if(err){
+            console.log(`error: ${err}`);
+            res.statusCode(300).json({
+                error: err
+            });
+        }else{
+            /*
+            então como não temos o user podemos retornar os
+            dados do body que tá tudo certo.
+             */
+            res.status(200).json(Object.assign(req.params,req.body));
+        }
+    });
+});
 ~~~
 
 <h3>Github :</h3>
