@@ -161,6 +161,28 @@ routes.get('/users', (req, res) => {
 });
 ~~~
 
+#### Express-validator
+
+O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
+
+> node install express-validator (--save)
+
+O express-validator adiciona novos métodos nos requests, requirindo algumas delas, como o **assert("x", "y")** sendo x o campo que deve ser válido e y a mensagem caso seja inválido, e para determinar o que é inválido ele adiciona outros novos métodos, como o notEmpty() que verifica se está vazio e somente se estiver ele responderá com a mensagem.
+
+* **notEmpty()**
+
+~~~javascript
+req.assert('nome', 'Você deve colocar um nome').notEmpty()
+~~~
+
+* **isEmail()**
+
+O isEmail() valida se o campo preenchido foi escrito como um email.
+
+~~~javascript
+req.assert('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
+~~~
+
 <h3>NeDB</h3>
 
 O NeDB é um banco de dados todo feito em javascript e é um 
@@ -277,6 +299,26 @@ routeId.put((req, res) => {
         }
     });
 });
+~~~
+
+* #### remove(x, y, z)
+
+> db.remove(x, y, z)
+
+sendo x um objeto json passando o registro que você está querendo remover, y sendo um parametro de opções passando multi se quiser vários registros de uma vez ou um por vez e z sendo uma variável que irá conter o erro caso for feito algum.
+
+~~~javascript
+//nesse caso eu estou usando consign, então a rota é routes
+
+routes.delete((req, res) =>{
+    db.remove({_id: req.params.id}, {}, err=>{
+        if(err){
+            //bloco de código para caso ter um erro
+        }else{
+            //bloco de código para caso não tenha.
+        }
+    })
+})
 ~~~
 
 <h3>Github :</h3>
