@@ -336,7 +336,12 @@ routes.delete((req, res) =>{
         sendo x a mensagem do commit que você quer fazer.
         e ele basicamente vai mandar para o repositório.
     
+    -git clone x
+        clona um repositório x, sendo x o link do repositório
 
+    -git fash remote name
+        faz download das mudanças do repositório.
+    
     -git remote
         Verifica se tem algum diretório remoto ligado a pasta.
     
