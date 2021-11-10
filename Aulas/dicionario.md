@@ -353,38 +353,37 @@ routes.delete((req, res) =>{
 })
 ~~~
 
-<h3>Github :</h3>
+### Github
 
-    - git init
-        para inicializar o repositório github
-        Lembrando que ele vai entrar na branch master como padrão
-    
+* **git init**
+    para inicializar o repositório github
+    Lembrando que ele vai entrar na branch master como padrão
 
-    -git add
-        para mandar para a stage area do repositório.
-    
+* **git add** 
+  para mandar para a stage area do repositório.
+  * git add *.* adiciona todos os arquivos que foram mudados ou estão faltando ou que você fez mudanças.
 
-    -git commit -m "x"
-        sendo x a mensagem do commit que você quer fazer.
-        e ele basicamente vai mandar para o repositório.
-    
-    -git clone x
-        clona um repositório x, sendo x o link do repositório
+* **git commit -m "x"**
+    sendo x a mensagem do commit que você quer fazer.
+    e ele basicamente vai mandar para a stage area.
 
-    -git fash remote name
-        faz download das mudanças do repositório.
-    
-    -git remote
-        Verifica se tem algum diretório remoto ligado a pasta.
-    
+* **git clone x**
+    clona um repositório x, sendo x o link do repositório
 
-    -git remote add origin y
-        sendo y o link do seu repositório no github.
-    
+* **git fash remote ""name""**
+    faz download das mudanças do repositório.
 
-    -git pull origin master --allow-unrelated-histories
-        Vai baixar os arquivos existentes no repositório
-    
+* **git remote**
+    Verifica se tem algum diretório remoto ligado a pasta.
 
-    -git push origin master
-        Vai dar um push nos arquivos na stage area;
+* **git remote add origin y**
+    sendo y o link do seu repositório no github.
+
+* **git status** 
+mostra todos os arquivos que estão faltando ou que você fez mudanças.
+
+* **git pull origin master --allow-unrelated-histories**
+    Vai baixar os arquivos existentes no repositório
+
+* **git push origin "branch"**
+    Vai dar um push nos arquivos na stage area.
