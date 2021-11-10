@@ -161,18 +161,50 @@ routes.get('/users', (req, res) => {
 });
 ~~~
 
-#### Express-validator
+#### Express-validator - 6v
 
 O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
 
 > node install express-validator (--save)
 
-O express-validator adiciona novos métodos nos requests, requirindo algumas delas, como o **assert("x", "y")** sendo x o campo que deve ser válido e y a mensagem caso seja inválido, e para determinar o que é inválido ele adiciona outros novos métodos, como o notEmpty() que verifica se está vazio e somente se estiver ele responderá com a mensagem.
+O express-validator adiciona novos métodos nos requests, requirindo algumas delas, como o **check("x", "y")** sendo x o campo que deve ser válido e y a mensagem caso seja inválido, e para determinar o que é inválido ele adiciona outros novos métodos, como o notEmpty() que verifica se está vazio e somente se estiver ele responderá com a mensagem.  
+Nas novas versões do express-validator a importação via app.use( expressValidator( ) ) do mesmo ficou deprecada, nas novas versões do produto o novo método de utilização fica nos arquivos de path, usando o require( ) do mesmo.
+
+~~~javascript
+const { check, validationResult } = require("express-validator");
+~~~
+
+E sua nova sintaxe deu o que falar, você usa agora a validação antes mesmo da resposta diferentemente do que se fazia anteriormente, agora sua fórmula de sintaxe fica assim:
+
+~~~javascript
+app.post([validações], requestResponse)
+~~~
+
+Um exemplo mais real:
+
+~~~javascript
+route.post(
+    [
+        check("name", "O nome é obrigatório.").notEmpty(),
+        check("email", "Email inválido.").notEmpty().isEmail(),
+    ], (req, res) => {
+
+        db.insert(req.body, (error, user)=>{
+            if(err){
+                app.Utils.error.send(err, req, res);
+            }else{
+                res.status(200).json(user);
+            }
+        });
+
+    }
+);
+~~~
 
 * **notEmpty()**
 
 ~~~javascript
-req.assert('nome', 'Você deve colocar um nome').notEmpty()
+check('nome', 'Você deve colocar um nome').notEmpty()
 ~~~
 
 * **isEmail()**
@@ -180,7 +212,7 @@ req.assert('nome', 'Você deve colocar um nome').notEmpty()
 O isEmail() valida se o campo preenchido foi escrito como um email.
 
 ~~~javascript
-req.assert('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
+check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
 ~~~
 
 <h3>NeDB</h3>
