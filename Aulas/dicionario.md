@@ -353,6 +353,14 @@ routes.delete((req, res) =>{
 })
 ~~~
 
+### Comandos de terminal
+
+* **echo > x** = escreve algo dentro de x, sendo x uma path de um arquivo
+
+* **>** = indica dentro de algo
+
+* **for** = faz o loop for dentro do terminal, como um *para cada*.
+
 ### Github
 
 * **git init**

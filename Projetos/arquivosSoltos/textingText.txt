@@ -1,0 +1,1 @@
+"Criando um txt ficticio s¢ para entender o fs do node" 
