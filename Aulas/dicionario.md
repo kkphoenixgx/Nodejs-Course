@@ -1,79 +1,85 @@
-<h2>Dicionário de Node, NPM, express e github</h2>
+# Dicionário de Node, NPM, express e github
 
-<h3>-NodeJs-</h3>
-    
-<h4>--módulos e dependentes:--</h4>
+## -NodeJs-
 
-<h5>---Módulos:---</h5>
+### --módulos e dependentes:--
+
+#### ---Módulos:---
 
 * O que é um módulo?
->"É um script php no qual você consegue incluir em um outro
-script. É uma maneira bem tradicional de se organizar as 
-partes funcionais do código."
 
+>"É um script php no qual você consegue incluir em um outro script. É uma maneira bem tradicional de se organizar as partes funcionais do código."
 
-* require(x): <br>
+* **require(x):**  
     O método require(x) que trás um módulo de dentro de um outro arquivo.
-    Então por exemplo, me traga o módulo http: require("http).<br>
+    Então por exemplo, me traga o módulo http: require("http).  
 
     Isso é muito usado para definir uma constante com o módulo que vai ser usado no código.
 
+~~~javascript
+    const http = require("http")
+~~~
+
+### ---Methods nodeJs---
+
+* **exec(fn)** :  
+  Basicamente você executa a função fn, mas com o node
+fica bem legal, pois você pode passar o erro e o a informação propriamente dita.
+
     ~~~javascript
-        const http = require("http")
-    ~~~ 
-<h5>---Methods nodeJs---</h5>
+    x.exec((err, user){
+        bloco de código 
+    })
+    ~~~
 
-* exec(fn) :<br>
-    basicamente você executa a função fn, mas com o node
-    fica bem legal, pois você pode passar o erro e o a informação propriamente dita.
-~~~javascript
-x.exec((err, user){
-    bloco de código 
-})
-~~~
+* **req.url( )**:  
+Retorna a url do site, exemplo:  
 
-* req.url(): <br>
-Retorna a url do site, exemplo: <br>
-~~~javascript
-x.createServer(req, res){
-    const url = req.url();
-    // isso vai retornar a url dentro da const url
-}
-~~~
+    ~~~javascript
+    x.createServer(req, res){
+        const url = req.url();
+        // isso vai retornar a url dentro da const url
+    }
+    ~~~
 
-<h5>---Dependentes:---</h5>
+* **process.hrtime()[0]**:  
+Isso pega o horario em milissegundos.
 
-<h5>----Server:----</h5>
+#### ---Dependentes:---
 
-<h5>-----Server methods-----</h5>
+* **fs** = file system = ele pode ler manipular pastas e arquivos.
+  * fs.readFile(Sync)(arquivo, (callBack)) = Ele lê um arquivo e se você quiser, lembrando que pode ser Sync ou não Sync, por isso o parenteses e o parenteses no callBack, porque se for Sync precisa do call back dizendo o que fazer enquanto está rodando esse carinha, coloca numa variável, por exemplo, se você dizer que a var = essaFn. *O buffer(tamanho limite) desse read é de 2gb*.
 
-* x.createServer(req, res);
+### ----Server:----
 
-    CreateServer basicamente cria um servidor usando um módulo, que pode ser chamado por um require por exemplo, os parametros 
-    req e res são respectivamente request e response, isso é um termo usado muito em nodejs, sendo request o que foi requisitado 
+#### -----Server methods----
+
+* **x.createServer(req, res);**
+
+    CreateServer basicamente cria um servidor usando um módulo, que pode ser chamado por um require por exemplo, os parametros  
+    req e res são respectivamente request e response, isso é um termo usado muito em nodejs, sendo request o que foi requisitado  
     pelo cliente e response o que foi respondido pelo server
 
-    **statusCode** é o status do servidor, sendo : <br>
-    200 = tudo certo. <br>
-    400 = erro <br>
+    **statusCode** é o status do servidor, sendo  
+    200 = tudo certo.  
+    400 = erro  
 
-* req.setHeader()
+* **req.setHeader()**
 
-    Informa a forma que você vai responder o request:<br>
-    
-    **formula:** <br>
+    Informa a forma que você vai responder o request:  
+
+    **formula:**  
     > res.setHeader('Content-Type', 'y')
-    
+
     sendo y como você vai responder:
-    
-    "text/plain" = formato de texto.<br>
-    "text/html" = formata para entender strings em html.<br>
-    "application/json" = faz poder retornar um json.<br>
 
-* x.listen(porta, ip, fn)
+    "text/plain" = formato de texto.  
+    "text/html" = formata para entender strings em html.  
+    "application/json" = faz poder retornar um json.  
 
-    No caso do listen, vamos passar a porta e o ip para o servidor rodar e o que fazer enquanto o servidor  estiver 
-    rodando, sendo x = o próprio server.
+* **x.listen(porta, ip, fn)**
+
+    No caso do listen, vamos passar a porta e o ip para o servidor rodar e o que fazer enquanto o servidor  estiver rodando, sendo x = o próprio server.
 
     ~~~javascript
     ex:
@@ -84,49 +90,49 @@ x.createServer(req, res){
     })
     ~~~
 
-<h5>-----Portas e Ips :-----</h5>
+#### -----Portas e Ips :----
 
-* ports: <br>
+* ports:  
 3000 = porta local.
-* Ips: <br>
+* Ips:  
 "127.0.0.1" = IP local da maquina.
 
+## --NPM--
 
-
-<h3>--NPM--</h3>
-
-<h4>conceitos :</h4>
+### conceitos
 
 npm = gerador de pacote do node. package json = é onde fica as configurações de projeto.
 
-<h4>comandos :</h4>
+### comandos
 
-* npm init = ele ajuda você a criar um package json.
+* **npm ini**t = ele ajuda você a criar um package json.
 
-* npm install x = instala um modulo externo.
+* **npm install** x = instala um modulo externo.
     --save = se colocar isso após o nome do pacote (x)
     ele vai salvar também no package.json as informações
-    do módulo como uma dependencia	
+    do módulo como uma dependencia  
 
-<h3>--Nodeschool--</h3>
+## --Nodeschool--
 
-    learnyounode = inicializa o Nodeschool.
-    learnyounode verify x = testa o código
+* **learnyounode** = inicializa o Nodeschool.
 
-<h3>--Express--</h3>
+* **learnyounode** verify x = testa o código
+
+## --Express--
 
 O express funciona de uma maneira bem simples, ele vai carregar tudo para você, você só precisa requisitar ele
 e criar uma variável x, que é o express em si, comumente
 chamada de app:
+
 ~~~javascript
 const express = require('express');
 
 var app = express();
 ~~~
 
-<h4>---Router( )---</h4>
+### ---Router( )---
 
-O router do express é basicamente um método separador de rotas nativo do express que separa rotas em arquivos de uma maneira incrivelmente contra producente mas melhor que o método padrão.<br>
+O router do express é basicamente um método separador de rotas nativo do express que separa rotas em arquivos de uma maneira incrivelmente contra producente mas melhor que o método padrão.  
 
 Usando uses() e requires() podemos usar e requirir no nosso arquivo
 os paths separados, no caso fica interessante fazer uma pasta só de paths e separar essas paths em arquivos. Com um require chamamos o arquivo pelo path do arquivo ex:
@@ -136,6 +142,7 @@ const routesIndex = require('./routes/pathIndex')
 ~~~
 
 E podemos chamar essa constante no use() exemplo :
+
 ~~~javascript
 app.use(routesIndex);
 ~~~
@@ -161,7 +168,7 @@ routes.get('/users', (req, res) => {
 });
 ~~~
 
-#### Express-validator - 6v
+### Express-validator - 6v
 
 O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
 
@@ -215,14 +222,11 @@ O isEmail() valida se o campo preenchido foi escrito como um email.
 check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
 ~~~
 
-<h3>NeDB</h3>
+## NeDB
 
-O NeDB é um banco de dados todo feito em javascript e é um 
-banco de dados bem simples de trabalhar, trazendo para os
-usuários de nodeJs uma simples forma de gerir um servidor
-na linguagem que a gente ama.
+O NeDB é um banco de dados todo feito em javascript e é um banco de dados bem simples de trabalhar, trazendo para os usuários de nodeJs uma simples forma de gerir um servidor na linguagem que a gente ama.
 
-* <h4>db.insert</h4>
+* ### db.insert
 
 Exemplo: caso queira inserir algo no banco de dados você utiliza **db.insert**:
 
@@ -234,7 +238,7 @@ Exemplo: caso queira inserir algo no banco de dados você utiliza **db.insert**:
         "}");
 ~~~
 
-* <h4>db.find():</h4>
+* ### db.find()
 
 formula:
 
@@ -273,7 +277,8 @@ app.get('/users', (req, res)=>{
 }) 
 ~~~
 
-* <h4>findOne(x) :</h4>
+* ### findOne(x)
+
 O método findOne(x), sendo x um json com o(s) atributos de um json que você quer encontrar, por exemplo, eu quero encontrar um usuário com um determinado id, eu vou pedir do json, o _id: e passar um req.params.x, sendo x o parametro colocado na url
 
 formula:
@@ -298,7 +303,7 @@ routeId.get((req, res) => {
 });
 ~~~
 
-* <h4>update(x) :</h4>
+* ### update(x)
 
 Então usando o método do NeDb chamado de update( ) do NeDb, podemos fazer alterações do banco.
 
@@ -333,7 +338,7 @@ routeId.put((req, res) => {
 });
 ~~~
 
-* #### remove(x, y, z)
+* ### remove(x, y, z)
 
 > db.remove(x, y, z)
 
@@ -353,45 +358,51 @@ routes.delete((req, res) =>{
 })
 ~~~
 
-### Comandos de terminal
-
-* **echo > x** = escreve algo dentro de x, sendo x uma path de um arquivo
+## Comandos shell script (terminal)
 
 * **>** = indica dentro de algo
 
-* **for** = faz o loop for dentro do terminal, como um *para cada*.
+* **l** = indica todos os arquivos e pastas de um diretório.
 
-### Github
+* **echo > x** = escreve algo dentro de x, sendo x uma path de um arquivo
 
-* **git init**
+* **for** = faz o loop for dentro do terminal, como um *para cada i, faça*. sendo i = o que você quer selecionar
+
+~~~shell script
+for i in quantityOfTimes; do commandBlock; done
+~~~
+
+## Github
+
+* **git init**  
     para inicializar o repositório github
     Lembrando que ele vai entrar na branch master como padrão
 
-* **git add** 
+* **git add**  
   para mandar para a stage area do repositório.
   * git add *.* adiciona todos os arquivos que foram mudados ou estão faltando ou que você fez mudanças.
 
-* **git commit -m "x"**
+* **git commit -m "x"**  
     sendo x a mensagem do commit que você quer fazer.
     e ele basicamente vai mandar para a stage area.
 
-* **git clone x**
+* **git clone x**  
     clona um repositório x, sendo x o link do repositório
 
-* **git fash remote ""name""**
+* **git fash remote ""name""**  
     faz download das mudanças do repositório.
 
-* **git remote**
+* **git remote**  
     Verifica se tem algum diretório remoto ligado a pasta.
 
-* **git remote add origin y**
+* **git remote add origin y**  
     sendo y o link do seu repositório no github.
 
-* **git status** 
+* **git status**  
 mostra todos os arquivos que estão faltando ou que você fez mudanças.
 
-* **git pull origin master --allow-unrelated-histories**
+* **git pull origin master --allow-unrelated-histories**  
     Vai baixar os arquivos existentes no repositório
 
-* **git push origin "branch"**
+* **git push origin "branch"**  
     Vai dar um push nos arquivos na stage area.
