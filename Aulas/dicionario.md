@@ -10,13 +10,15 @@
     const X = require("X")
 ~~~
 
-* **fs** = file system = ele pode ler manipular pastas e arquivos.
+* #####  **fs** = file system = ele pode ler manipular pastas e arquivos
+  
   * fs.readFile(Sync)(arquivo, (callBack)) = Ele lê um arquivo e se você quiser, lembrando que pode ser Sync ou não Sync, por isso o parenteses e o parenteses no callBack, porque se for Sync precisa do call back dizendo o que fazer enquanto está rodando esse carinha, coloca numa variável, por exemplo, se você dizer que a var = essaFn. *O buffer(tamanho limite) desse read é de 2gb*.
 
-* **crypto** = é um método de criptografia.
+* #####   **crypto** = é um método de criptografia
+  
   * cripto.pbdkdf2(Sync)( "senha","salto",[quantas vezes quer que rode isso em number],[quantos bytes é para alocar na criptografia em number], "padrão" (callBack) ) e isso vai encriptar a senha.
 
-* **🔸 Express**
+* #####   **🔸 Express**
 
   O express funciona de uma maneira bem simples, ele vai carregar tudo para você, você só precisa requisitar ele
   e criar uma variável x, que é o express em si, comumente
@@ -28,7 +30,7 @@
   var app = express();
   ~~~
 
-* **express router**
+* #####   **express router**
 
   O router do express é basicamente um método separador de rotas nativo do express que separa rotas em arquivos de uma maneira incrivelmente contra producente mas melhor que o método padrão.  
 
@@ -65,7 +67,7 @@
   });
   ~~~
 
-* **Express-validator - 6v**
+* #####   **Express-validator - 6v**
 
   O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
 
@@ -115,11 +117,11 @@
 
     O isEmail() valida se o campo preenchido foi escrito como um email.
 
-  ~~~javascript
-  check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
-  ~~~
+    ~~~javascript
+    check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
+    ~~~
 
-* **🔸 NeDB**
+* #####   **🔸 NeDB**
 
   O NeDB é um banco de dados todo feito em javascript e é um banco de dados bem simples de trabalhar, trazendo para os usuários de nodeJs uma simples forma de gerir um servidor na linguagem que a gente ama.
 
@@ -171,72 +173,72 @@
     }) 
     ~~~
 
-* **findOne(x)**
+  * **findOne(x)**
 
-  O método findOne(x), sendo x um json com o(s) atributos de um json que você quer encontrar, por exemplo, eu quero encontrar um usuário com um determinado id, eu vou pedir do json, o _id: e passar um req.params.x, sendo x o parametro colocado na url
+    O método findOne(x), sendo x um json com o(s) atributos de um json que você quer encontrar, por exemplo, eu quero encontrar um usuário com um determinado id, eu vou pedir do json, o _id: e passar um req.params.x, sendo x o parametro colocado na url
 
-  formula:
-    > db.findOne( { _x : req.params.x }).exec( fn )
+    formula:
+      > db.findOne( { _x : req.params.x }).exec( fn )
 
-  Sendo x o parametro que você quer encontrar no banco, vamos um exemplo de que eu quero achar um id em especifico mas de uma maneira abstrata, claro para qualquer id que passar no form:  
+    Sendo x o parametro que você quer encontrar no banco, vamos um exemplo de que eu quero achar um id em especifico mas de uma maneira abstrata, claro para qualquer id que passar no form:  
 
-  ~~~javascript
-  const routeId = app.routes('/users/:id');
-  
-  routeId.get((req, res) => {
-      db.findOne({_id: req.params.id}).exec((err, user)=> {
-          if(err){
-              console.log(`error: ${err}`);
-              res.statusCode(300).json({
-                  error: err
-              });
-          }else{
-              res.status(200).json(user);
-          }
-      }); 
-  });
-  ~~~
+    ~~~javascript
+    const routeId = app.routes('/users/:id');
+    
+    routeId.get((req, res) => {
+        db.findOne({_id: req.params.id}).exec((err, user)=> {
+            if(err){
+                console.log(`error: ${err}`);
+                res.statusCode(300).json({
+                    error: err
+                });
+            }else{
+                res.status(200).json(user);
+            }
+        }); 
+    });
+    ~~~
 
   * **update(x)**
 
     Então usando o método do NeDb chamado de update( ) do NeDb, podemos fazer alterações do banco.
 
-  > x.update({_y : req.params.y}, z, fn)
+    > x.update({_y : req.params.y}, z, fn)
 
-  sendo x o banco, passar um update com um objeto json passando o parametro que você quer mudar num json que requisita o y e os dados necessários, no caso z, que pode ser por exemplo um **req.Body, ou seja uma requisição dos dados que estão no formulário naquele momento**, depois você executa a função sendo fn uma function para tratar o erro e as informações caso dê tudo certo. agora um exemplo prático:
+    sendo x o banco, passar um update com um objeto json passando o parametro que você quer mudar num json que requisita o y e os dados necessários, no caso z, que pode ser por exemplo um **req.Body, ou seja uma requisição dos dados que estão no formulário naquele momento**, depois você executa a função sendo fn uma function para tratar o erro e as informações caso dê tudo certo. agora um exemplo prático:
 
-  ~~~javascript
-  /* 
-  lembrando que aqui eu já to dentro de um arquivo para tratar 
-  dados de usuários e já defini meu app como express no meu 
-  index, isso que eu tô fazendo já é tratando minha rota.
-  */
+    ~~~javascript
+    /* 
+    lembrando que aqui eu já to dentro de um arquivo para tratar 
+    dados de usuários e já defini meu app como express no meu 
+    index, isso que eu tô fazendo já é tratando minha rota.
+    */
 
-  const routeId = app.routes('/users/:id');
+    const routeId = app.routes('/users/:id');
 
-  routeId.put((req, res) => {
-      db.update({_id: req.params.id}, req.body, err =>{
-          if(err){
-              console.log(`error: ${err}`);
-              res.statusCode(300).json({
-                  error: err
-              });
-          }else{
-              /*
-              então como não temos o user podemos retornar os
-              dados do body que tá tudo certo.
-               */
-              res.status(200).json(Object.assign(req.params,req.body));
-        }
-      });
-  });
-  ~~~
+    routeId.put((req, res) => {
+        db.update({_id: req.params.id}, req.body, err =>{
+            if(err){
+                console.log(`error: ${err}`);
+                res.statusCode(300).json({
+                    error: err
+                });
+            }else{
+                /*
+                então como não temos o user podemos retornar os
+                dados do body que tá tudo certo.
+                */
+                res.status(200).json(Object.assign(req.params,req.body));
+            }
+        });
+    });
+    ~~~
 
-  * remove(x, y, z)
+  * **remove(x, y, z)**
 
-  > db.remove(x, y, z)
+    > db.remove(x, y, z)
 
-  sendo x um objeto json passando o registro que você está querendo remover, y sendo um parametro de opções passando multi se quiser vários registros de uma vez ou um por vez e z sendo uma variável que irá conter o erro caso for feito algum.
+    sendo x um objeto json passando o registro que você está querendo remover, y sendo um parametro de opções passando multi se quiser vários registros de uma vez ou um por vez e z sendo uma variável que irá conter o erro caso for feito algum.
 
   ~~~javascript
   // nesse caso eu estou usando consign, então a rota é routes
