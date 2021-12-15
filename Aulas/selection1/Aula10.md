@@ -1,6 +1,6 @@
 # NodeJs Single thread or multi-Thread?
 
-Mod xx -- **09/12/21**
+Mod 16 -- **09/12/21**
 
 Single Thread = faz todo o processamento dos scripts em ordem de execução, se você chamar um método 1 em cima do 2, o método 2 será depois do 1. Tudo assincronamente
 
