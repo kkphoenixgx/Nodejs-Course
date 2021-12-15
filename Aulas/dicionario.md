@@ -4,21 +4,56 @@
 
 ### --módulos e dependentes:--
 
-#### ---Módulos:---
+Quando tiver um emoji desses após o nome significa que este precisa de um módulo já instalado para funcionar:
+
+(⌛) = depende do express
 
 ~~~javascript
     const X = require("X")
 ~~~
 
-* #####  **fs** = file system = ele pode ler manipular pastas e arquivos
+* ####  **fs** = file system = ele pode ler manipular pastas e arquivos
   
   * fs.readFile(Sync)(arquivo, (callBack)) = Ele lê um arquivo e se você quiser, lembrando que pode ser Sync ou não Sync, por isso o parenteses e o parenteses no callBack, porque se for Sync precisa do call back dizendo o que fazer enquanto está rodando esse carinha, coloca numa variável, por exemplo, se você dizer que a var = essaFn. *O buffer(tamanho limite) desse read é de 2gb*.
 
-* #####   **crypto** = é um método de criptografia
+* ####   **crypto** = é um método de criptografia
   
   * cripto.pbdkdf2(Sync)( "senha","salto",[quantas vezes quer que rode isso em number],[quantos bytes é para alocar na criptografia em number], "padrão" (callBack) ) e isso vai encriptar a senha.
 
-* #####   **🔸 Express**
+* #### **formidable**
+
+  * setup formidable:
+    mais informações para o que é o fomidable em: [Aula62](https://github.com/kkphoenixgx/JavascriptCourse/blob/master/Aulas/Selection6/Aula62.md). A execução do formidable está sendo feita dentro do Router.post  
+
+    ~~~js
+    //Express e Router (Não são dependentes para o processo)
+    var express = require('express');
+    var Router = express.Router();
+
+    // formidable (não depende do express)
+    var formidable = require('formidable')
+
+    /*
+    Nesse exemplo eu vou criar uma parte de uma api
+    isso não está completo, é só o método post usando router do express
+    */
+    var app = express();
+    router.post('/YourPathUpload', function(req, res){
+
+    let form = new formidable.IncomingForm({
+        uploadDir : './uploads',
+        keepExtensionsFiles: true
+    });
+
+    form.parse(FormReq, (error, fields, files) =>{
+            res.json({
+            files
+            });
+    });
+    });
+    ~~~
+
+* ####   **🔸 Express**
 
   O express funciona de uma maneira bem simples, ele vai carregar tudo para você, você só precisa requisitar ele
   e criar uma variável x, que é o express em si, comumente
@@ -30,7 +65,7 @@
   var app = express();
   ~~~
 
-* #####   **express router**
+* ####   **express router** (⌛)
 
   O router do express é basicamente um método separador de rotas nativo do express que separa rotas em arquivos de uma maneira incrivelmente contra producente mas melhor que o método padrão.  
 
@@ -67,7 +102,7 @@
   });
   ~~~
 
-* #####   **Express-validator - 6v**
+* ####   **Express-validator - 6v** (⌛)
 
   O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
 
@@ -121,7 +156,39 @@
     check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
     ~~~
 
-* #####   **🔸 NeDB**
+* ####   **Body Parser** (⌛)
+
+* setup bodyParser:
+  
+  > npm install body-parser
+
+  Mais informações sobre o que é o body parser em: [Aula62](https://github.com/kkphoenixgx/JavascriptCourse/blob/master/Aulas/Selection6/Aula62.md)
+  
+  O body parser tem um jeito de trabalhar usando o app.use do express, sendo app o express instanciado:
+
+  ~~~javascript
+  var express = require('express');
+  var bodyParser = require('body-parser');
+  
+  /* 
+  **bodyParser.json**
+  no caso estou usando o formato json para o padrão
+  de leitura de arquivos do formulário, mas o formato
+  é moldável a sua escolha.
+  */
+  /*
+  **Url encoded:**
+  Já o método encoded para a url é um método para
+  encriptar a url de forma segura, então é necessário usar este
+  */
+  app.use(bodyParser.json());
+  app.use(bodyParser.url.encoded({extended: false}));
+  ~~~
+
+* **req.body**
+  A partir do momento que o bodyParser for devidamente colocado em seu script, ele funcionará de uma forma simples e muito útil, defina req.body e você poderá receber na forma que você escolheu, os dados do seu form.
+
+* ####   **🔸 NeDB**
 
   O NeDB é um banco de dados todo feito em javascript e é um banco de dados bem simples de trabalhar, trazendo para os usuários de nodeJs uma simples forma de gerir um servidor na linguagem que a gente ama.
 
