@@ -1,4 +1,4 @@
-# Dicionário de Node, NPM, express e github
+# Dicionário de Node, NPM, github e todos os frameworks que eu estudo
 
 ## -NodeJs-
 
