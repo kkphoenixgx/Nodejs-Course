@@ -1,4 +1,4 @@
-# Dicionário de Node, NPM, express e github
+# Dicionário de Node, NPM, github e todos os frameworks que eu estudo
 
 ## -NodeJs-
 
@@ -417,20 +417,6 @@ npm = gerador de pacote do node. package json = é onde fica as configurações 
 * **learnyounode** = inicializa o Nodeschool.
 
 * **learnyounode** verify x = testa o código
-
-## Comandos shell script (terminal)
-
-* **>** = indica dentro de algo
-
-* **l** = indica todos os arquivos e pastas de um diretório.
-
-* **echo > x** = escreve algo dentro de x, sendo x uma path de um arquivo
-
-* **for** = faz o loop for dentro do terminal, como um *para cada i, faça*. sendo i = o que você quer selecionar
-
-~~~shell script
-for i in quantityOfTimes; do commandBlock; done
-~~~
 
 ## Github
 
