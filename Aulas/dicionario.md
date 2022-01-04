@@ -1,4 +1,4 @@
-# Dicionário de Node, NPM, github e todos os frameworks que eu estudo
+# Dicionário de Node, NPM, firebase, github e todos os frameworks que eu estudo
 
 ## -NodeJs-
 
@@ -412,11 +412,21 @@ npm = gerador de pacote do node. package json = é onde fica as configurações 
     ele vai salvar também no package.json as informações
     do módulo como uma dependencia  
 
-## --Nodeschool--
+## ---Nodeschool---
 
 * **learnyounode** = inicializa o Nodeschool.
 
 * **learnyounode** verify x = testa o código
+
+## -Firebase-
+
+Aqui vou sitar todos as libs importáveis do firestore principalmente já que é o que eu estou usando, mas adicionárei tudo o que eu for aprendendo aqui:
+
+* **collection(dataBase, title)** = permite referenciar a um title do firebase
+
+* **addDoc(reference, JsonFile)** = adiciona o json descrito na referencia e isso retorna uma promisse.
+
+* **serverTimeStamp()** =  pega o timestamp quando entrar no servidor, diminui o processamento para o usuário
 
 ## Github
 
