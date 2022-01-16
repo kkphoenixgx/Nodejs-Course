@@ -352,6 +352,9 @@ Retorna a url do site, exemplo:
 * **process.hrtime()[0]**:  
 Isso pega o horario em milissegundos.
 
+* **setTimeout(fn, x)**
+Essa função determina um tempo até que algo seja executado, no caso **x** sendo o tempo em milissegundos e executa a função após isso
+
 #### Server Methods
 
 * **x.createServer(req, res);**
