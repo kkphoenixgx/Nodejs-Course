@@ -2,10 +2,12 @@
 
 ## -NodeJs-
 
-### --módulos e dependentes:--
+* ### Eventos do Node.js
 
-Quando tiver um emoji desses após o nome significa que este precisa de um módulo já instalado para funcionar:
+* ### --Módulos e dependentes:--
 
+Caso não tenha emoji algum, significa que é nativo do js
+(🔸) = Tópico
 (⌛) = depende do express
 
 ~~~javascript
@@ -65,7 +67,7 @@ Quando tiver um emoji desses após o nome significa que este precisa de um módu
   var app = express();
   ~~~
 
-* ####   **express router** (⌛)
+* #####   **express router** (⌛)
 
   O router do express é basicamente um método separador de rotas nativo do express que separa rotas em arquivos de uma maneira incrivelmente contra producente mas melhor que o método padrão.  
 
@@ -102,7 +104,7 @@ Quando tiver um emoji desses após o nome significa que este precisa de um módu
   });
   ~~~
 
-* ####   **Express-validator - 6v** (⌛)
+* #####   **Express-validator - 6v** (⌛)
 
   O express validator é o método indicado pelo express para validar campos html e fazer um filtro antes de entrar no db de um site. A forma de instalação pelo npm é bem simples:
 
@@ -156,7 +158,7 @@ Quando tiver um emoji desses após o nome significa que este precisa de um módu
     check('email', 'o campo deve ser em formato de email').motEmpty().isEmail()
     ~~~
 
-* ####   **Body Parser** (⌛)
+* #####   **Body Parser** (⌛)
 
 * setup bodyParser:
   
@@ -321,7 +323,7 @@ Quando tiver um emoji desses após o nome significa que este precisa de um módu
   })
   ~~~
 
-### ---Methods nodeJs---
+* ### ---Methods nodeJs---
 
 * **require(x):**  
     O método require(x) que trás um módulo de dentro de um outro arquivo.
@@ -400,28 +402,28 @@ Essa função determina um tempo até que algo seja executado, no caso **x** sen
 * Ips:  
 "127.0.0.1" = IP local da maquina.
 
+-----------------------------------
+
 ## --NPM--
 
-### conceitos
+* ### Comandos de terminal
 
-npm = gerador de pacote do node. package json = é onde fica as configurações de projeto.
+  * **npm ini**t = ele ajuda você a criar um package json.
 
-### comandos
-
-* **npm ini**t = ele ajuda você a criar um package json.
-
-* **npm install** x = instala um modulo externo.
+  * **npm install** x = instala um modulo externo.
     --save = se colocar isso após o nome do pacote (x)
     ele vai salvar também no package.json as informações
     do módulo como uma dependencia  
 
-## ---Nodeschool---
+## Frameworks e outros
+
+### ---Nodeschool---
 
 * **learnyounode** = inicializa o Nodeschool.
 
 * **learnyounode** verify x = testa o código
 
-## -Firebase-
+### -Firebase-
 
 Aqui vou sitar todos as libs importáveis do firestore principalmente já que é o que eu estou usando, mas adicionárei tudo o que eu for aprendendo aqui:
 
@@ -431,7 +433,7 @@ Aqui vou sitar todos as libs importáveis do firestore principalmente já que é
 
 * **serverTimeStamp()** =  pega o timestamp quando entrar no servidor, diminui o processamento para o usuário
 
-## Github
+### Github
 
 * **git init**  
     para inicializar o repositório github
