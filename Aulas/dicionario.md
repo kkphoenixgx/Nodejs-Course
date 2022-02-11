@@ -8,6 +8,7 @@
 
 Caso não tenha emoji algum, significa que é nativo do js
 (🔸) = Tópico
+(👓) = framework (que vai requirir da pasta node_modules)
 (⌛) = depende do express
 
 ~~~javascript
@@ -22,7 +23,7 @@ Caso não tenha emoji algum, significa que é nativo do js
   
   * cripto.pbdkdf2(Sync)( "senha","salto",[quantas vezes quer que rode isso em number],[quantos bytes é para alocar na criptografia em number], "padrão" (callBack) ) e isso vai encriptar a senha.
 
-* #### **formidable**
+* #### **formidable** = gerencia e cria arquivos
 
   * setup formidable:
     mais informações para o que é o fomidable em: [Aula62](https://github.com/kkphoenixgx/JavascriptCourse/blob/master/Aulas/Selection6/Aula62.md). A execução do formidable está sendo feita dentro do Router.post  
@@ -54,6 +55,28 @@ Caso não tenha emoji algum, significa que é nativo do js
     });
     });
     ~~~
+
+* #### **👓 colors** = cores no terminal
+
+Existem dois setups para você colocar cores no terminal, existe a maneira simples e normal e a maneira mais longa nas que possui uma aparência de melhor entendimento para os que não conhecem o framework;
+
+* Forma simples:
+
+    ~~~js
+    const colors = require('./node_modules/colors/lib/index.js');
+
+    // Isso gera um degrade de arco-íris no terminal
+    console.log('Server started'.rainbow)
+    ~~~
+
+* forma safe:
+
+    ~~~js
+    const colors = require('./node_modules/colors/safe.js');
+    console.log(  colors.rainbow('Server started')  );
+    ~~~
+
+Existem muitas possíveis cores, então para escolher uma, dá uma olhada em todas as cores e funções [no site deles](https://www.npmjs.com/package/colors)
 
 * ####   **🔸 Express**
 
