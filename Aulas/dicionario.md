@@ -78,6 +78,18 @@ Existem dois setups para você colocar cores no terminal, existe a maneira simpl
 
 Existem muitas possíveis cores, então para escolher uma, dá uma olhada em todas as cores e funções [no site deles](https://www.npmjs.com/package/colors)
 
+* **👓 🔸 chalk** = é um framework para mudar dos logs no console
+  
+  O chalk só funciona usando os imports nos modules, então tem que dar no seu package.json um 'type': 'module' para ele funcionar e usar os imports em em todos os requires.
+
+  * **👓 chalkAnimation** = é um sistema de animação para logs do console
+
+    ~~~js
+    import chalkAnimation from 'chalk-animation'
+
+    chalkAnimation.rainbow('Server started').start();
+    ~~~
+
 * ####   **🔸 Express**
 
   O express funciona de uma maneira bem simples, ele vai carregar tudo para você, você só precisa requisitar ele

@@ -1,0 +1,17 @@
+{
+  "name": "servidorhttp",
+  "version": "1.0.0",
+  "description": "A simple server that open the page to you",
+  "main": "serverLocal.js",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "chalk-animation": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kkphoenixgx",
+  "license": "ISC"
+}

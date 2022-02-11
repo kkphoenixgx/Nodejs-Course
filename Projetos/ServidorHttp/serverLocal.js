@@ -1,7 +1,9 @@
 //---------------dependencies------------
 
-const http = require('http');
-const colors = require('./node_modules/colors/lib/index.js');
+import http from 'http'
+import chalk from 'chalk';
+import chalkAnimation from 'chalk-animation'
+import child_process from 'child_process'
 
 // -----------------Variables-----------
 
@@ -22,7 +24,7 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(PORT, HOST_NAME, ()=> {
-    console.log('Server started'.random)
+    chalkAnimation.rainbow('Server started').start();
 });
 
-require('child_process').exec(OPEN + ' ' + URL);
+child_process.exec(OPEN + ' ' + URL);
