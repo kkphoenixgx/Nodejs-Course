@@ -17,8 +17,12 @@ Caso não tenha emoji algum, significa que é nativo do js
 
 * ####  **fs** = file system = ele pode ler manipular pastas e arquivos
   
-  * fs.readFile(Sync)(arquivo, (callBack)) = Ele lê um arquivo e se você quiser, lembrando que pode ser Sync ou não Sync, por isso o parenteses e o parenteses no callBack, porque se for Sync precisa do call back dizendo o que fazer enquanto está rodando esse carinha, coloca numa variável, por exemplo, se você dizer que a var = essaFn. *O buffer(tamanho limite) desse read é de 2gb*.
-
+  * **fs.readFile(Sync)(arquivo, (callBack))**:
+    Ele lê um arquivo e se você quiser, lembrando que pode ser Sync ou não Sync, por isso o parenteses e o parenteses no callBack, porque se for Sync precisa do call back dizendo o que fazer enquanto está rodando esse carinha, coloca numa variável, por exemplo, se você dizer que a var = essaFn. *O buffer(tamanho limite) desse read é de 2gb*.
+  
+  * **fs.readdir[ Sync ](dir, [ fn(err, data) ])**:
+    lê para você o diretório e quando é sync, o método é blocking
+  
 * ####   **crypto** = é um método de criptografia
   
   * cripto.pbdkdf2(Sync)( "senha","salto",[quantas vezes quer que rode isso em number],[quantos bytes é para alocar na criptografia em number], "padrão" (callBack) ) e isso vai encriptar a senha.
