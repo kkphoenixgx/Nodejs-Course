@@ -14,7 +14,7 @@ Porém o node tem um método bem útil que é o event loop que faz várias coisa
 
 Usando a palavra chave sync no nodejs rodamos o conceito com o conceito blocking e quando não fizermos isso, poderemos rodar o segundo arquivo.
 
-**Nota simples**: relação sincrona e assincrona não fala sobre as treats, ele fala sobre requisição, quando o user require ou não algo, então um comando pode ser assincrono(ou sincrono) e blocking(ou non blocking);
+**Nota simples**: relação síncrona e assíncrona não fala sobre as treats, ele fala sobre requisição, quando o user require ou não algo, então um comando pode ser assincrono(ou sincrono) e blocking(ou non blocking);
 
 ---
 
