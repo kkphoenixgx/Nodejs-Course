@@ -57,7 +57,7 @@ const srcFolders = ['components', 'styles', 'hooks', 'helpers', 'pages', 'servic
 const assetsFolders = ['Audio', 'Video', 'Images', 'Fonts']
 
 // ----BASE FILES----
-const rootFiles = ['.gitignore', 'README.md', 'package.json', 'package.json']
+const rootFiles = ['.gitignore', 'README.md', 'package.json']
 const srcFiles = ['App.js', 'Index.js']
 const stylesFiles = ['Index.css']
 
@@ -68,9 +68,8 @@ export function init(folderName, path){
     let createFolders = new Promise((resolve, reject) => {
 
         try{
-            let COMPLETE_PATH
 
-            COMPLETE_PATH = `${path}/${folderName}`
+            let COMPLETE_PATH = `${path}/${folderName}`
         
             createBaseFolder(COMPLETE_PATH);
             createRootFolders(COMPLETE_PATH);
@@ -82,7 +81,7 @@ export function init(folderName, path){
 
             resolve(true)
 
-        } catch(err){ reject(err) }      
+        } catch(err){ reject(err) }
 
     })
 

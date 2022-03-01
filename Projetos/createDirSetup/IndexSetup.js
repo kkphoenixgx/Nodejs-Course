@@ -4,6 +4,7 @@ import chalkAnimation from 'chalk-animation';
 import { createSpinner } from 'nanospinner';
 
 import { init as initReact } from './Architectures/react-Architecture.js'
+import { default as initExpress} from './Architectures/express-Architecture.js'
 
 var PROJECT_FOLDER_NAME;
 var PATH;
@@ -11,7 +12,6 @@ var ARCHITECTURE;
 
 let correct;
 const sleep = (ms = 2000) => new Promise( (resolve) => setTimeout(resolve, ms) )
-
 
 async function Questions(){
 
@@ -65,7 +65,13 @@ async function createArchitecture(ARCHITECTURE,PATH, FOLDER_NAME){
                 if(message) correct = true;
                 if(! message) correct = false;
             });
-
+        break;
+        case 'Express':
+            await sleep();
+            initExpress(FOLDER_NAME, PATH).then( message => {
+                if(message) correct = true;
+                if(! message) correct = false;
+            })
         break;
     }
 
