@@ -22,7 +22,12 @@ Caso não tenha emoji algum, significa que é nativo do js
   
   * **fs.readdir[ Sync ](dir, [ fn(err, data) ])**:
     lê para você o diretório e quando é sync, o método é blocking
-  
+
+  * **fs.mkdir('dirPathOrJustName', ( OptionalJsonSettings ) ,fn(err) )**:
+    Isso cria uma pasta no caminho que você mencionou e executa a function logo depois e caso temos algumas configurações possíveis nesse método lindo, vou citar somente as mais utilizadas na minha opinião :
+
+    * **recursive: (true/false)** = todas as pastas que não tiverem ele vai criar automaticamente
+
 * ####   **crypto** = é um método de criptografia
   
   * cripto.pbdkdf2(Sync)( "senha","salto",[quantas vezes quer que rode isso em number],[quantos bytes é para alocar na criptografia em number], "padrão" (callBack) ) e isso vai encriptar a senha.
@@ -82,9 +87,13 @@ Existem dois setups para você colocar cores no terminal, existe a maneira simpl
 
 Existem muitas possíveis cores, então para escolher uma, dá uma olhada em todas as cores e funções [no site deles](https://www.npmjs.com/package/colors)
 
-* **👓 🔸 chalk** = é um framework para mudar dos logs no console
+* #### **👓 🔸 chalk** = é um framework para mudar dos logs no console
   
   O chalk só funciona usando os imports nos modules, então tem que dar no seu package.json um 'type': 'module' para ele funcionar e usar os imports em em todos os requires.
+
+  ~~~js
+  console.log(chalk.blue('x'))
+  ~~~
 
   * **👓 chalkAnimation** = é um sistema de animação para logs do console
 
@@ -93,6 +102,10 @@ Existem muitas possíveis cores, então para escolher uma, dá uma olhada em tod
 
     chalkAnimation.rainbow('Server started').start();
     ~~~
+
+* #### **👓 inquirer** = serve para coletar dados com um painel e fazer aqueles clãs de escolha
+
+  A
 
 * ####   **🔸 Express**
 
