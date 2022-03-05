@@ -1,17 +1,16 @@
-// #!/usr/bin/env node
 import inquirer from 'inquirer';
-import chalkAnimation from 'chalk-animation';
-import { createSpinner } from 'nanospinner';
+import os from 'os';
 
-import { init as initReact } from './Architectures/react-Architecture.js'
-import { default as initExpress} from './Architectures/express-Architecture.js'
+import {createArchitecture} from './Setup/startArchitectureSetup.js';
 
-var PROJECT_FOLDER_NAME;
-var PATH;
-var ARCHITECTURE;
+export var PROJECT_FOLDER_NAME;
+export var PATH;
+export var ARCHITECTURE;
 
-let correct;
-const sleep = (ms = 2000) => new Promise( (resolve) => setTimeout(resolve, ms) )
+await Questions();
+await architectureChoice();
+
+await createArchitecture(ARCHITECTURE, PATH, PROJECT_FOLDER_NAME);
 
 async function Questions(){
 
@@ -28,11 +27,12 @@ async function Questions(){
         name: 'path',
         type: 'input',
         message: 'Please digit your project path',
-        default() { return `./` }
+        default() { return `C:/Users/${os.userInfo().username}/Desktop` }
     })
 
     PATH = path.path
 }
+
 async function architectureChoice(){
 
     const architecture = await inquirer.prompt({
@@ -45,37 +45,4 @@ async function architectureChoice(){
     });
 
     ARCHITECTURE = architecture.architecture;
-
-    const spinner = createSpinner('Creating your architecture...').start();
-    
-    await createArchitecture(ARCHITECTURE, PATH, PROJECT_FOLDER_NAME);
-
-    if(correct) spinner.success({text : 'Content created'});
-    if(!correct) {
-        spinner.error({ text : chalkAnimation.glitch('THAT IS A ERROR').start() })
-        process.exit();
-    }
 }
-async function createArchitecture(ARCHITECTURE,PATH, FOLDER_NAME){
-    
-    switch(ARCHITECTURE){
-        case 'React':
-            await sleep();
-            initReact(FOLDER_NAME, PATH).then( message => { 
-                if(message) correct = true;
-                if(! message) correct = false;
-            });
-        break;
-        case 'Express':
-            await sleep();
-            initExpress(FOLDER_NAME, PATH).then( message => {
-                if(message) correct = true;
-                if(! message) correct = false;
-            })
-        break;
-    }
-
-}
-
-await Questions();
-await architectureChoice();

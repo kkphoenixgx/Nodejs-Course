@@ -1,7 +1,7 @@
 {
   "name": "node_course",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/kkphoenixgx/Nodejs-Course/issues"
   },
-  "homepage": "https://github.com/kkphoenixgx/Nodejs-Course#readme"
+  "homepage": "https://github.com/kkphoenixgx/Nodejs-Course#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "nanospinner": "^1.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }

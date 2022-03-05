@@ -1,4 +1,4 @@
-const fs = require('fs');
+import { readFileSync, readFile } from 'fs';
 
 console.log("----Testando o blocking e non blocking----");
 
@@ -8,7 +8,7 @@ console.log("[1]  antes da primeira leitura :" + (process.hrtime()[0]/60).toFixe
 // começo da operação 1
 
     try { 
-        const data1 = fs.readFileSync("textingText.txt");
+        const data1 = readFileSync("../textingText.txt");
         console.log("fim da leitura 1")
     }
     catch(e){ console.error(e) }
@@ -23,7 +23,7 @@ console.log("[2]  antes da leitura dois :" + (process.hrtime()[0]/60).toFixed(5)
 // começo da operação 2
 
 
-    const data2 = fs.readFile("textText.txt", (error, data) =>{
+    const data2 = readFile("../textText.txt", (error, data) =>{
         if(error) throw error;
         if(!error) console.log("fim da leitura 2");
     });

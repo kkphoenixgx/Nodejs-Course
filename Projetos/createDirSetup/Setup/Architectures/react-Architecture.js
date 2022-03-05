@@ -2,32 +2,6 @@
 import fs from 'fs'
 import chalk from 'chalk'
 
-const package_json_preSet = `{
-    "name": "x",
-    "version": "1.0.0",
-    "description": "",
-    "main": "Index.js",
-    "type": "module",
-    "scripts": {
-        "start": "node Index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "x"
-    },
-    "keywords": [
-        "x"
-    ],
-    "author": "kkphoenix",
-    "license": "ISC",
-    "bugs": {
-        "url": "x/issues"
-    },
-    "homepage": "x",
-    "dependencies": {
-    }
-}
-`
 const REACT_APP_DEFAULT = `
 import logo from './styles/Index.css';
 
@@ -52,14 +26,14 @@ export default App;
 `
 
 // ----FOLDERS----
-const rootFolders = ['src', 'assets', 'node_modules']
+const rootFolders = ['src', 'assets']
 const srcFolders = ['components', 'styles', 'hooks', 'helpers', 'pages', 'services']
 const assetsFolders = ['Audio', 'Video', 'Images', 'Fonts']
 
 // ----BASE FILES----
-const rootFiles = ['.gitignore', 'README.md', 'package.json']
+const rootFiles = ['.gitignore', 'README.md']
 const srcFiles = ['App.js', 'Index.js']
-const stylesFiles = ['Index.css']
+const stylesFiles = ['index.css']
 
 // ----- BASE PROCESS -------
 
@@ -81,7 +55,7 @@ export function init(folderName, path){
 
             resolve(true)
 
-        } catch(err){ reject(err) }
+        } catch(err){ reject(false) }
 
     })
 
@@ -136,11 +110,6 @@ function createRootFiles(path){
             case '.gitignore':
                 content = 'node_modules'
             break;
-
-            case 'package.json':
-                content = package_json_preSet;
-            break;
-            
             default:
                 content = ''
 
@@ -168,7 +137,7 @@ function createSrcReactBaseFiles(path){
                 content = ''
         }
 
-        fs.writeFile(`${path}/src/${element}`, `${content}`, function(error) {
+        fs.writeFile(`${path}/src/${element}`, `${content}`, (error) => {
             if(error) throw error
 
             console.log(chalk.magenta(`created ${element} file`));
@@ -176,10 +145,18 @@ function createSrcReactBaseFiles(path){
     });
 }
 function createStyleFiles(path){
-    stylesFiles.forEach(element => {
-        fs.writeFile(`${path}/src/styles/${element}`, '', function(error) {
-            if(error) throw error
 
+    stylesFiles.forEach(element => {
+
+        let content;
+        switch(element){
+            default: 
+                content= '';
+            break;
+        }
+
+        fs.writeFile(`${path}/src/styles/${element}`, `${content}`, (error)=>{
+            if(error) throw error
             console.log(chalk.cyan(`created ${element} file`));
         });
     });

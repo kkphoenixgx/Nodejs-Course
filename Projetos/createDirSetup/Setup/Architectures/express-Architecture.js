@@ -95,43 +95,17 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 `
-const package_json_preSet = `{
-    "name": "x",
-    "version": "1.0.0",
-    "description": "",
-    "main": "Index.js",
-    "type": "module",
-    "scripts": {
-        "start": "node Index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "x"
-    },
-    "keywords": [
-        "x"
-    ],
-    "author": "kkphoenix",
-    "license": "ISC",
-    "bugs": {
-        "url": "x/issues"
-    },
-    "homepage": "x",
-    "dependencies": {
-    }
-}
-`
 
 // ---- Folders ----
 
   // The base folder is generated depending on the folderName, so can't be a const
-  const rootFolders = ['public', 'node_modules', 'bin', 'routes', 'views'];
+  const rootFolders = ['public', 'bin', 'routes', 'views'];
   const publicFolders = ['src', 'assets']
   const srcFolders = ['Controller', 'Utils']
   const assetsFolders = ['Audio', 'Video', 'Images', 'Fonts']
 
 // ----- Files -----
-  const rootFiles = ['.gitignore', 'package.json']
+  const rootFiles = ['.gitignore']
   const binFiles = ['www'];
   const publicFiles = ['README.md']
   const viewsFiles = ['index.ejs', 'error.ejs']
