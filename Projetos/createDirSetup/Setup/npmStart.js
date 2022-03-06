@@ -42,7 +42,7 @@ the react setup is long, so it is better to digit it\n
                 console.log(REACT_MESSAGE);
             });
 
-        break;
+            break;
         case 'Node':
             await sleep();
 
@@ -76,7 +76,7 @@ the react setup is long, so it is better to digit it\n
                     });
             }
 
-        break;
+            break;
         case 'Express':
             await sleep();
             const spinnerInstallExpress = createSpinner('installing express...').start();
@@ -96,6 +96,27 @@ the react setup is long, so it is better to digit it\n
                 spinnerInstallExpress.success();
                 console.log(`stdout: \n ${stdout}`);
             });
-        break;
+            break;
+        case 'MVC':
+            await sleep();
+            const spinnerInstallNodemon = createSpinner('installing Nodemon...').start();
+            await sleep();
+
+            exec(`npm install nodemon --prefix ${path}`, (error, stdout, stderr) =>{ 
+                if(error){
+                    spinnerInstallNodemon.error();
+                    return console.error(`error: ${error.message}`)
+                }
+
+                if(stderr){
+                    spinnerInstallNodemon.error();
+                    return console.error(`stderr: ${stderr}`)
+                }
+
+                spinnerInstallNodemon.success();
+                console.log(`stdout: \n ${stdout}`);
+            });
+
+            break;
     }
 }
