@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 
-const COMPLETE_PATH = 'C:/Users/kkphoenix/Desktop/project-folder'
+const COMPLETE_PATH = 'C:/Users/kkpho/My Drive/Programação/Java/' // C:/Users/kkphoenix/Desktop/project-folder
 const REACT_MESSAGE =  chalk.green(
     `
     ----------------------------------------------------------------------------\n
